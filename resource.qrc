@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>tubiao.png</file>
+        <file>map/dynamic-data2.html</file>
+        <file>map/echarts.js</file>
+        <file>map/map-parallel-prices.html</file>
+        <file>css/Ubuntu.qss</file>
+        <file>map/map.html</file>
+        <file>icon.png</file>
+        <file>Z_icon.png</file>
+    </qresource>
+</RCC>
