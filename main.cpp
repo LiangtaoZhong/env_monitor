@@ -3,6 +3,9 @@
 #include <QApplication>
 #include "QtSql"
 #include "timer.h"
+
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -15,8 +18,6 @@ int main(int argc, char *argv[])
 
     qApp->setWindowIcon(QIcon(":/Z_icon.png"));
     QObject::connect(&w,SIGNAL(showMainWindow()),&mainwin,SLOT(on_showMainWindow()));
-  //  QObject::connect(&timer,SIGNAL(updateTable()),&mainwin,SLOT(on_updateTable()));
-
 
     return a.exec();
 }

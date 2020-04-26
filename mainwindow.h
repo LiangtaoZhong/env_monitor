@@ -6,6 +6,8 @@
 #include "QSerialPortInfo"
 #include "QtSql"
 #include "QtCharts"
+#include "chartview.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -19,12 +21,13 @@ public:
     void configRadio();
     void databaseInit();
     void uiInit();
+    void tableInit();
     QString returnName(int index);
     ~MainWindow();
 
 public slots:
     void on_showMainWindow();
-    //void on_updateTable();
+
 private slots:
     void on_cornectBtn_clicked();
     void on_breakBtn_clicked();
@@ -37,6 +40,13 @@ private slots:
 
     void on_exportBtn_clicked();
 
+    void on_startTimeEdit_dateTimeChanged(const QDateTime &dateTime);
+
+    void on_refreshBtn_clicked();
+
+    void on_wheelChanged(QWheelEvent *event);
+    void on_mousePress(QMouseEvent *event);
+    void on_mouseMove(QMouseEvent *event);
 private:
     Ui::MainWindow *ui;
     QSerialPortInfo port;
@@ -46,7 +56,15 @@ private:
     QByteArray radioData;
     QSqlTableModel *model;
     QChart* chart;
-    QChartView * chartView;
+    struct chartXSize{
+        int min;
+        int max;
+    }chartXSize;
+
+    int currentPos;
+    int lastPos;
+    ChartView * chartView;
+    QLineSeries *series;
 
 public:
     QSqlDatabase db;

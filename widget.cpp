@@ -3,7 +3,7 @@
 #include "QtSql"
 #include "QtDebug"
 #include "QMessageBox"
-
+#include "common.h"
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -29,6 +29,8 @@ void Widget::on_loginBtn_clicked()
     QString edit_user = ui->useridEdit->text();
     QString edit_passwd = ui->passEdit->text();
     QSqlQuery query;
+
+
     query.exec("select * from user");
 
     while(query.next()) {
@@ -42,10 +44,13 @@ void Widget::on_loginBtn_clicked()
         }
     }
 
-//    if(!isOk){
-//        qDebug()<<"password incorrent!";
-//        QMessageBox::warning(this,"failed to login in ","Password errors or User is not in database");
-//    }
+#if NEED_LOGIN == 1
+    if(!isOk){
+        qDebug()<<"password incorrent!";
+        QMessageBox::warning(this,"failed to login in ","Password errors or User is not in database");
+    }
+#else
     emit showMainWindow();
     this->close();
+#endif
 }
