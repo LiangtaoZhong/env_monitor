@@ -21,7 +21,8 @@ void ChartView::wheelEvent(QWheelEvent *event)
 
 void ChartView::mousePressEvent(QMouseEvent *event)
 {
-    isPressed = true;
+    if(event->button() == Qt::LeftButton)
+        isPressed = true;
     emit mousePress(event);
 
 }
@@ -30,8 +31,6 @@ void ChartView::mouseMoveEvent(QMouseEvent *event)
 {
     if(isPressed)
         emit mouseMove(event);
-
-
 }
 
 void ChartView::mouseReleaseEvent(QMouseEvent *event)

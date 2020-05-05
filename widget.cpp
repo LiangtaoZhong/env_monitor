@@ -17,7 +17,6 @@ Widget::~Widget()
     delete ui;
 }
 
-
 void Widget::on_exitBtn_clicked()
 {
     exit(0);

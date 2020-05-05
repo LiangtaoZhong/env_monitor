@@ -7,7 +7,7 @@
 #include "QtSql"
 #include "QtCharts"
 #include "chartview.h"
-
+#include "common.h"
 namespace Ui {
 class MainWindow;
 }
@@ -47,6 +47,12 @@ private slots:
     void on_wheelChanged(QWheelEvent *event);
     void on_mousePress(QMouseEvent *event);
     void on_mouseMove(QMouseEvent *event);
+
+    void on_parseData(QByteArray& data);
+    void on_updateDatabase(Msg& msg);
+signals:
+    void  parseData(QByteArray& data);
+    void  updateDatabase(Msg& msg);
 private:
     Ui::MainWindow *ui;
     QSerialPortInfo port;
@@ -66,8 +72,10 @@ private:
     ChartView * chartView;
     QLineSeries *series;
 
+    QByteArray raw_data;
 public:
     QSqlDatabase db;
+    Msg msg;
 };
 
 #endif // MAINWINDOW_H

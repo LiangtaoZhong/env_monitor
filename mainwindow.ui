@@ -590,7 +590,7 @@ QToolBox::tab:selected {
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
@@ -710,9 +710,9 @@ QToolBox::tab:selected {
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="deleteBtn">
+          <widget class="QLabel" name="tabelLabel">
            <property name="text">
-            <string>delete</string>
+            <string>xlabel</string>
            </property>
           </widget>
          </item>
@@ -738,9 +738,33 @@ QToolBox::tab:selected {
       <attribute name="title">
        <string>Tab 2</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+      <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,0">
        <item>
         <widget class="QWidget" name="virualWgt" native="true"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="plotLabel">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -783,7 +807,14 @@ QToolBox::tab:selected {
            <item>
             <widget class="QPushButton" name="clearBtn">
              <property name="text">
-              <string>clear up</string>
+              <string>clean up</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="InsertCheckBox">
+             <property name="text">
+              <string>Insert Database</string>
              </property>
             </widget>
            </item>

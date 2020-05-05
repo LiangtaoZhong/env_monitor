@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     w.show();
 
     //每秒生成一些随机数
-    Timer timer;
+   // Timer timer; //前期用作测试数据 现在弃用
 
     qApp->setWindowIcon(QIcon(":/Z_icon.png"));
     QObject::connect(&w,SIGNAL(showMainWindow()),&mainwin,SLOT(on_showMainWindow()));
